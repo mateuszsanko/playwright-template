@@ -10,5 +10,6 @@ test.beforeEach(async ({page}) => {
 
 test('go to disappearing page', async ({page}) => {
     await disappearingPage.goto();
+    await expect(disappearingPage.galleryTab).toBeVisible();
     await expect(page).toHaveScreenshot({maxDiffPixels: 100});
 });

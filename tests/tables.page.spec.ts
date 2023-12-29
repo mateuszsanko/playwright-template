@@ -18,3 +18,8 @@ test('delete row with text', async ({page: Page}) => {
     await expect(tablesPage.getRowWithText('Smith')).toContainText('John');
     await tablesPage.deleteRowWithText('Smith').click();
 })
+
+test.only('test', async ({page}) => {
+    await tablesPage.goto();
+    await expect(tablesPage.getColumns(1, 2));
+})

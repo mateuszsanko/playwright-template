@@ -1,6 +1,6 @@
 import {type Page} from '@playwright/test';
 import {BasePage} from "./base.page";
-import {PageInterface} from "../../utils/interfaces";
+import {PageInterface} from "../../utils/structures";
 
 export class HerokuHomePage extends BasePage implements PageInterface {
 

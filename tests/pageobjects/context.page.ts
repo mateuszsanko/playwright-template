@@ -1,5 +1,5 @@
 import {BasePage} from "./base.page";
-import {PageInterface} from "../../utils/interfaces";
+import {PageInterface} from "../../utils/structures";
 import {expect, Locator, Page} from "@playwright/test";
 
 export class ContextPage extends BasePage implements PageInterface {

@@ -1,5 +1,4 @@
 import {expect, test} from '@playwright/test';
-import {ContextPage} from "./pageobjects/context.page";
 import {DisappearingPage} from "./pageobjects/disappearing.page";
 
 let disappearingPage: DisappearingPage = null;

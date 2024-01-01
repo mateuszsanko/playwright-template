@@ -1,7 +1,7 @@
 import {Locator} from "@playwright/test";
 
 export class TableUtils {
-    
+
     async getValuesFromColumn(tableLocator: Locator, columnName: string) {
         const rows = await tableLocator.locator("tbody tr").all();
         const columnNumber = await this.getColumnNumber(tableLocator, columnName);

@@ -19,7 +19,7 @@ test('delete row with text', async ({page: Page}) => {
     await tablesPage.deleteRowWithText('Smith').click();
 })
 
-test.only('test', async ({page}) => {
+test('test', async ({page}) => {
     await tablesPage.goto();
     console.log(await tablesPage.utils.getValuesFromColumn(page.locator('table#table1'), "Last Name"));
 })

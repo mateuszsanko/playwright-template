@@ -1,7 +1,7 @@
 import {BasePage} from "./base.page";
 import {PageInterface} from "../../utils/structures";
 import {Locator, Page} from "@playwright/test";
-import {Columns} from "../../utils/structures";
+import {TableUtils} from "../../utils/tables";
 
 export class TablesPage extends BasePage implements PageInterface {
 
@@ -9,6 +9,7 @@ export class TablesPage extends BasePage implements PageInterface {
     readonly url: string;
     readonly row: Locator;
     readonly rowsTable1: Locator;
+    readonly utils: TableUtils;
 
     constructor(page: Page) {
         super(page);
@@ -17,6 +18,7 @@ export class TablesPage extends BasePage implements PageInterface {
         this.row = this.page.locator('table#table1 tbody tr',
             {has: this.page.locator(`text="Frank"`)});
         this.rowsTable1 = this.page.locator('table#table1 tbody tr');
+        this.utils = new TableUtils();
     }
 
     getRowWithText(text: string) {
@@ -32,9 +34,5 @@ export class TablesPage extends BasePage implements PageInterface {
         tableNumber = tableNumber - 1;
         await this.page.locator("table").nth(tableNumber)
             .locator('thead th').nth(columnNumber).click();
-    }
-
-    getColumns(tableNumber: number, columnNumber: number) {
-        return this.page.locator("table#table1 tbody tr td").all();
     }
 }

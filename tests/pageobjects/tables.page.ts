@@ -18,21 +18,6 @@ export class TablesPage extends BasePage implements PageInterface {
         this.row = this.page.locator('table#table1 tbody tr',
             {has: this.page.locator(`text="Frank"`)});
         this.rowsTable1 = this.page.locator('table#table1 tbody tr');
-        this.utils = new TableUtils();
-    }
-
-    getRowWithText(text: string) {
-        return this.page.locator('table#table1 tr',
-            {has: this.page.locator(`text="${text}"`)});
-    }
-
-    deleteRowWithText(text: string) {
-        return this.getRowWithText(text).getByText('delete');
-    }
-
-    async sortBy(tableNumber: number, columnNumber: number) {
-        tableNumber = tableNumber - 1;
-        await this.page.locator("table").nth(tableNumber)
-            .locator('thead th').nth(columnNumber).click();
+        this.utils = new TableUtils(page);
     }
 }

@@ -1,6 +1,5 @@
 import {expect, test} from '@playwright/test';
 import {TablesPage} from "./pageobjects/tables.page";
-import exp = require("constants");
 
 let tablesPage: TablesPage = null;
 
@@ -19,7 +18,7 @@ test('delete row with text', async ({page}) => {
     await tablesPage.utils.deleteRowWithText(page.locator('table#table1'), 'Smith').click();
 })
 
-test.only('sort by last name', async ({page}) => {
+test('sort by last name', async ({page}) => {
     await tablesPage.goto();
     const columnNumber = await tablesPage.utils
         .getColumnNumber(page.locator('table#table1'), 'Last Name');

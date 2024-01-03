@@ -1,8 +1,7 @@
-import {BasePage} from "./base.page";
-import {PageInterface} from "../../utils/structures";
+import {BasePage} from "./base.page"; 
 import {Locator, Page} from "@playwright/test";
 
-export class DynamicControlsPage extends BasePage implements PageInterface {
+export class DynamicControlsPage extends BasePage {
 
     readonly HEADER_TEXT: string;
     readonly url: string;

@@ -1,8 +1,7 @@
 import {expect, type Locator, type Page} from '@playwright/test';
-import {BasePage} from "./base.page";
-import {PageInterface} from "../../utils/structures";
+import {BasePage} from "./base.page"; 
 
-export class AddRemovePage extends BasePage implements PageInterface {
+export class AddRemovePage extends BasePage {
 
     readonly addButton: Locator;
     readonly deleteButton: Locator;

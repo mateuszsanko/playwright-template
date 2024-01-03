@@ -1,8 +1,7 @@
 import {type Page} from '@playwright/test';
-import {BasePage} from "./base.page";
-import {PageInterface} from "../../utils/structures";
+import {BasePage} from "./base.page"; 
 
-export class HerokuHomePage extends BasePage implements PageInterface {
+export class HerokuHomePage extends BasePage {
 
     readonly HEADER_TEXT: string;
     readonly url: string;

@@ -1,8 +1,7 @@
 import {BasePage} from "./base.page";
-import {PageInterface} from "../../utils/structures";
 import {Locator, Page} from "@playwright/test";
 
-export class CheckboxesPage extends BasePage implements PageInterface {
+export class CheckboxesPage extends BasePage {
 
     readonly HEADER_TEXT: string;
     readonly url: string;

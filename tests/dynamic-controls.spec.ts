@@ -1,5 +1,5 @@
 import {expect, test} from '@playwright/test';
-import {DynamicControlsPage} from "./pageobjects/dynamic.controls.page";
+import {DynamicControlsPage} from "./pageobjects/dynamic-controls.page";
 import exp = require("constants");
 
 let dynamicControlsPage: DynamicControlsPage = null;

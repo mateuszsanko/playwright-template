@@ -1,6 +1,6 @@
 import {BasePage} from "./base.page";
 import {expect, Locator, Page} from "@playwright/test";
-import {DynamicOnePage} from "./dynamic.one.page";
+import {DynamicOnePage} from "./dynamic-one.page";
 
 export class DynamicLoadingPage extends BasePage {
     readonly HEADER_TEXT: string;

@@ -1,6 +1,6 @@
-import {BasePage} from "./base.page"; 
+import {BasePage} from "./base.page";
 import {Locator, Page} from "@playwright/test";
-import {TableUtils} from "../../utils/tables";
+
 
 export class TablesPage extends BasePage {
 
@@ -8,7 +8,6 @@ export class TablesPage extends BasePage {
     readonly url: string;
     readonly row: Locator;
     readonly rowsTable1: Locator;
-    readonly utils: TableUtils;
 
     constructor(page: Page) {
         super(page);
@@ -17,6 +16,5 @@ export class TablesPage extends BasePage {
         this.row = this.page.locator('table#table1 tbody tr',
             {has: this.page.locator(`text="Frank"`)});
         this.rowsTable1 = this.page.locator('table#table1 tbody tr');
-        this.utils = new TableUtils(page);
     }
 }

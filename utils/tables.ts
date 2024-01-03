@@ -1,40 +1,32 @@
 import {Locator, Page} from "@playwright/test";
 
-export class TableUtils {
 
-    readonly page: Page;
+export async function getValuesFromColumn(tableLocator: Locator, columnName: string) {
+    const rows = await tableLocator.locator("tbody tr").all();
+    const columnNumber = await getColumnNumber(tableLocator, columnName);
+    const stringValues: string[] = [];
 
-    constructor(page: Page) {
-        this.page = page;
+    for (let i = 0; i < rows.length; i++) {
+        stringValues.push(await rows[i].locator("td").nth(columnNumber).textContent());
     }
+    return stringValues;
+}
 
-    async getValuesFromColumn(tableLocator: Locator, columnName: string) {
-        const rows = await tableLocator.locator("tbody tr").all();
-        const columnNumber = await this.getColumnNumber(tableLocator, columnName);
-        const stringValues: string[] = [];
+export async function getColumnNumber(tableLocator: Locator, columnName: string): Promise<number> {
+    const columnNames = await tableLocator.locator('thead tr th').allTextContents();
+    return columnNames.indexOf(columnName);
+}
 
-        for (let i = 0; i < rows.length; i++) {
-            stringValues.push(await rows[i].locator("td").nth(columnNumber).textContent());
-        }
-        return stringValues;
-    }
+export function getRowWithText(page: Page, tableLocator: Locator, text: string) {
+    return tableLocator.locator('tr',
+        {has: page.locator(`text="${text}"`)});
+}
 
-    async getColumnNumber(tableLocator: Locator, columnName: string): Promise<number> {
-        const columnNames = await tableLocator.locator('thead tr th').allTextContents();
-        return columnNames.indexOf(columnName);
-    }
+export function deleteRowWithText(page: Page, tableLocator: Locator, text: string) {
+    return getRowWithText(page, tableLocator, text).getByText('delete');
+}
 
-    getRowWithText(tableLocator: Locator, text: string) {
-        return tableLocator.locator('tr',
-            {has: this.page.locator(`text="${text}"`)});
-    }
-
-    deleteRowWithText(tableLocator: Locator, text: string) {
-        return this.getRowWithText(tableLocator, text).getByText('delete');
-    }
-
-    async sortBy(tableLocator: Locator, columnNumber: number) {
-        await tableLocator
-            .locator('thead th').nth(columnNumber).click();
-    }
+export async function sortBy(tableLocator: Locator, columnNumber: number) {
+    await tableLocator
+        .locator('thead th').nth(columnNumber).click();
 }

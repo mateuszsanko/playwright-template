@@ -7,7 +7,7 @@ test.beforeEach(async ({page}) => {
     dynamicLoadingPage = new DynamicLoadingPage(page);
 });
 
-test('go to dynamic controls page', async ({page}) => {
+test('@smoke go to dynamic controls page', async ({page}) => {
     await dynamicLoadingPage.goto();
     expect(await dynamicLoadingPage.getSuccessMessage()).toEqual("Hello World!");
 });

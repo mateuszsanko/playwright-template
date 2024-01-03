@@ -8,7 +8,7 @@ test.beforeEach(async ({page}) => {
     dynamicControlsPage = new DynamicControlsPage(page);
 });
 
-test('go to dynamic controls page', async ({page}) => {
+test('@smoke go to dynamic controls page', async ({page}) => {
     await dynamicControlsPage.goto();
     await expect(dynamicControlsPage.checkbox).toBeVisible();
     await dynamicControlsPage.removeButton.click();

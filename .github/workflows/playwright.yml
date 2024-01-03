@@ -17,8 +17,10 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
+    - name: Run smoke tests
+      run: npx playwright test --grep @smoke
+    - name: Run full suite
+      run: npx playwright test --grep-invert @smoke
     - uses: actions/upload-artifact@v3
       if: always()
       with:

@@ -1,5 +1,5 @@
 import {expect, test} from '@playwright/test';
-import {DynamicLoadingPage} from "./pageobjects/dynamic.loading.page";
+import {DynamicLoadingPage} from "./pageobjects/dynamic-loading.page";
 
 let dynamicLoadingPage: DynamicLoadingPage = null;
 

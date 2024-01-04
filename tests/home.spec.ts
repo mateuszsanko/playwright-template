@@ -1,14 +1,14 @@
 import {expect, test} from '@playwright/test';
-import {HerokuHomePage} from "./pageobjects/heroku-home.page";
+import {HomePage} from "./pageobjects/home.page";
 import {AddRemovePage} from "./pageobjects/add-remove.page";
 import {CheckboxesPage} from "./pageobjects/checkboxes.page";
 
-let homePage: HerokuHomePage = null;
+let homePage: HomePage = null;
 let addRemovePage: AddRemovePage = null;
 let checkboxesPage: CheckboxesPage = null;
 
 test.beforeEach(async ({page}) => {
-    homePage = new HerokuHomePage(page);
+    homePage = new HomePage(page);
     addRemovePage = new AddRemovePage(page);
     checkboxesPage = new CheckboxesPage(page);
 });

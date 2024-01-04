@@ -1,6 +1,6 @@
 import {expect, type Locator, type Page} from '@playwright/test';
-import {GithubComponent} from "./components/github.component";
-import {FooterComponent} from "./components/footer.component";
+import {GithubComponent} from "./components/GithubComponent";
+import {FooterComponent} from "./components/FooterComponent";
 
 export abstract class BasePage {
     readonly page: Page;

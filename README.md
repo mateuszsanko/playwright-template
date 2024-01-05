@@ -1,2 +1,2 @@
-* `npm install`
-* `npx playwright test`
+`npm install`
+`npx playwright test`
